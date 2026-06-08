@@ -635,7 +635,7 @@ const ExamSubjects = () => {
   const { branch, sem, examType } = state;
   const subjectList = subjects[branch][sem];
   return (
-    <div className="bg-slate-900 min-h-screen flex flex-col items-center p-6 gap-6">
+    <div className="bg-[#dbc397] min-h-screen flex flex-col items-center p-6 gap-6">
       <p className="font-bold text-4xl text-amber-900">
         {sem} — {branch}
       </p>

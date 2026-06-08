@@ -468,7 +468,7 @@ const Library = () => {
               />
             </div>
 
-            <div className="col-span-1 -ml-10 flex h-full flex-col items-center justify-end pb-0 relative z-10"></div>
+            <div className="col-span-1"></div>
 
             <div className="col-span-3 place-content-center self-center flex h-[2.12cqh] flex-col relative z-10">
               <WoodenRack
