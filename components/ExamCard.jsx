@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+const url = import.meta.env.VITE_SUPABASE_URL;
 
 const ExamCard = (props) => {
   const { subtitle, title,examType } = props;
-  const projectID = "ijpcsvmrrfhvkezgzopf";
   const bucket = "subjects";
   const cleanSubject = title.replace(/[\s\.\,\-]+/g, "_");
 
   // The direct public link to your zip folder package:
-  const zipDownloadUrl = `https://${projectID}.supabase.co/storage/v1/object/public/${bucket}/${examType}/${cleanSubject}/${cleanSubject}.zip`;
+  const zipDownloadUrl = `${url}/storage/v1/object/public/${bucket}/${examType}/${cleanSubject}/${cleanSubject}.zip`;
 
   return (
     <div className="p-4 flex flex-col gap-2 items-center border bg-amber-100 border-amber-900 rounded-2xl">

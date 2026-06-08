@@ -1,14 +1,24 @@
 import React, { forwardRef, useState } from "react";
 import { useContext } from "react";
+import { createClient } from "@supabase/supabase-js";
 import LibraryContext from "../src/LibraryContext";
-import { supabase } from "../src/supabase";
+
+const url = import.meta.env.VITE_SUPABASE_URL;
+const key = import.meta.env.VITE_SUPABASE_KEY;
 
 const WoodenRack = forwardRef((props, ref) => {
+  const supabase = createClient(url, key);
   const number = props.number;
   const side = props.side;
   const id = props.id;
-  const { highlightedId,found, setHighlightedId, setBooks, setCurrentPage,setFound } =
-    useContext(LibraryContext);
+  const {
+    highlightedId,
+    found,
+    setHighlightedId,
+    setBooks,
+    setCurrentPage,
+    setFound,
+  } = useContext(LibraryContext);
   const highlight = id === highlightedId;
 
   return (

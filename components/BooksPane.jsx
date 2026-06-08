@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import LibraryContext from "../src/LibraryContext";
 import { useContext } from "react";
-import { supabase } from "../src/supabase";
 import { LoaderCircle } from "lucide-react";
+import { createClient } from "@supabase/supabase-js";
+const url = import.meta.env.VITE_SUPABASE_URL;
+const key = import.meta.env.VITE_SUPABASE_KEY;
 
 const BooksPane = () => {
+  const supabase = createClient(url, key);
   const [query, setQuery] = useState("");
   const { books, setBooks, setHighlightedId, found, setFound, highlightedId } =
     useContext(LibraryContext);

@@ -1,9 +1,12 @@
 import { forwardRef, useState } from "react";
 import LibraryContext from "../src/LibraryContext";
 import { useContext } from "react";
-import { supabase } from "../src/supabase";
+import { createClient } from "@supabase/supabase-js";
+const url = import.meta.env.VITE_SUPABASE_URL;
+const key = import.meta.env.VITE_SUPABASE_KEY;
 
 const SteelBlock = forwardRef((props, ref) => {
+  const supabase = createClient(url, key);
   const number = props.number;
   const side = props.side;
   const id = props.id;

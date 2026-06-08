@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const url = import.meta.env.VITE_SUPABASE_URL;
 
 const SyllabusCard = (props) => {
   const { buttonText, title } = props;
@@ -10,12 +11,7 @@ const SyllabusCard = (props) => {
       <button
         className="flex gap-3 text-sm md:text-base items-center justify-center hover:scale-105 cursor-pointer bg-[#B83D1E] border-2 border-[#B83D1E] font-mono hover:bg-white hover:text-[#B83D1E] rounded-3xl w-full h-10 text-white"
         onClick={async () => {
-          const response = await fetch(
-            `/api/download/?subject=${encodeURIComponent(title)}&type=Syllabus`,
-          );
-          const data = await response.json();
-          if (data.url) window.open(data.url);
-          else alert("File not available yet");
+            window.open(`${url}/storage/v1/object/public/subjects/Syllabus/${encodeURIComponent(title)}.pdf`)
         }}
       >
         <svg
